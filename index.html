@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>凝恩语言 NINGEN — 让中文成为编程的一等公民</title>
+<meta name="description" content="凝恩语言（NINGEN）：全中文自然语言级编程语言，含全自研编译器、VM 与 ARM64 工具链。让中文成为编程的一等公民。">
+<style>
+  :root {
+    --teal-50: #f0fdfa;
+    --teal-100: #ccfbf1;
+    --teal-200: #99f6e4;
+    --teal-300: #5eead4;
+    --teal-400: #2dd4bf;
+    --teal-500: #14b8a6;
+    --teal-600: #0d9488;
+    --teal-700: #0f766e;
+    --teal-900: #134e4a;
+    --ink: #0f172a;
+    --ink-soft: #334155;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    background: linear-gradient(160deg, #062a2a 0%, #0b3d3a 40%, #0f172a 100%);
+    color: #e2e8f0;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 0;
+  }
+  .logo { font-size: 22px; font-weight: 800; color: var(--teal-300); letter-spacing: 1px; }
+  .logo span { color: #94a3b8; font-weight: 400; font-size: 14px; margin-left: 8px; }
+  nav a { color: var(--teal-200); text-decoration: none; margin-left: 24px; font-size: 14px; }
+  nav a:hover { color: #fff; }
+  .hero { text-align: center; padding: 90px 0 70px; }
+  .hero h1 {
+    font-size: clamp(40px, 7vw, 68px);
+    font-weight: 900;
+    background: linear-gradient(120deg, var(--teal-200), var(--teal-400), var(--teal-600));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    letter-spacing: 4px;
+  }
+  .hero .sub { margin-top: 18px; font-size: clamp(18px, 3vw, 26px); color: var(--teal-100); font-weight: 600; }
+  .hero .desc { margin-top: 20px; color: #94a3b8; max-width: 640px; margin-left: auto; margin-right: auto; font-size: 15px; }
+  .hero .badges { margin-top: 32px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .badge {
+    border: 1px solid var(--teal-500); color: var(--teal-200);
+    padding: 8px 18px; border-radius: 999px; font-size: 13px; background: rgba(20,184,166,.08);
+  }
+  .btn {
+    display: inline-block; margin-top: 40px; padding: 14px 36px;
+    background: linear-gradient(120deg, var(--teal-400), var(--teal-600));
+    color: #042f2e; font-weight: 800; border-radius: 12px; text-decoration: none; font-size: 16px;
+    box-shadow: 0 8px 30px rgba(45,212,191,.25);
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(45,212,191,.35); }
+  section { padding: 56px 0; }
+  h2 { font-size: 28px; color: var(--teal-200); margin-bottom: 32px; font-weight: 800; letter-spacing: 2px; }
+  h2::after { content: ""; display: block; width: 48px; height: 4px; background: var(--teal-500); margin-top: 10px; border-radius: 2px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  .card {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(94,234,212,.15);
+    border-radius: 16px; padding: 24px; transition: .25s;
+  }
+  .card:hover { border-color: var(--teal-400); transform: translateY(-4px); }
+  .card h3 { color: var(--teal-300); font-size: 17px; margin-bottom: 10px; }
+  .card p { font-size: 14px; color: #94a3b8; }
+  .list { list-style: none; }
+  .list li { padding: 10px 0 10px 28px; position: relative; color: #cbd5e1; border-bottom: 1px dashed rgba(94,234,212,.1); font-size: 15px; }
+  .list li::before { content: "◆"; position: absolute; left: 0; color: var(--teal-400); font-size: 12px; top: 14px; }
+  .lic { background: rgba(255,255,255,.04); border: 1px solid rgba(94,234,212,.15); border-radius: 16px; padding: 28px; }
+  .lic p { color: #94a3b8; font-size: 14px; margin-top: 12px; }
+  footer { text-align: center; padding: 48px 0 56px; color: #64748b; font-size: 13px; border-top: 1px solid rgba(94,234,212,.08); margin-top: 40px; }
+  footer .heart { color: var(--teal-400); }
+  .github { text-align: center; margin-top: 32px; }
+  .github a { color: var(--teal-300); font-size: 14px; }
+</style>
+</head>
+<body>
+<nav class="wrap">
+  <div class="logo">凝恩语言 <span>NINGEN</span></div>
+  <div><a href="#features">特性</a><a href="#toolchain">工具链</a><a href="#license">开源</a></div>
+</nav>
+
+<div class="hero wrap">
+  <h1>凝恩语言</h1>
+  <div class="sub">让中文成为编程的一等公民</div>
+  <p class="desc">凝恩语言（NINGEN）是一门全中文自然语言级编程语言，含全自研编译器、字节码 VM 与 ARM64 工具链，安全主权架构，不依赖任何开源编译框架，纯原生打造。</p>
+  <div class="badges">
+    <span class="badge">全中文语法</span>
+    <span class="badge">安全主权架构</span>
+    <span class="badge">全自研 ARM64 工具链</span>
+    <span class="badge">Apache-2.0 开源</span>
+  </div>
+  <a class="btn" href="https://github.com/ningen-dev/ningen" target="_blank">查看开源仓库 →</a>
+  <div class="github"><a href="https://github.com/ningen-dev" target="_blank">github.com/ningen-dev</a></div>
+</div>
+
+<section id="features" class="wrap">
+  <h2>核心特性</h2>
+  <div class="grid">
+    <div class="card"><h3>中文一等公民</h3><p>关键字、语法、错误提示全中文，自然语言级表达，让中文开发者零门槛上手。</p></div>
+    <div class="card"><h3>安全主权架构</h3><p>可证、唯一可验、安全可证明、衍生可溯源，安全从语言层面开始。</p></div>
+    <div class="card"><h3>全自研工具链</h3><p>编译器、汇编器、VM/JIT、签名工具全部自研，不依赖任何开源编译框架。</p></div>
+    <div class="card"><h3>ARM64 原生</h3><p>面向 ARM64 架构深度优化，配套中文汇编器，从底层掌握每一行指令。</p></div>
+  </div>
+</section>
+
+<section id="toolchain" class="wrap">
+  <h2>全自研工具链</h2>
+  <ul class="list">
+    <li><strong>凝恩编译器</strong> — 全中文自然语言级编译前端，让代码像说话一样书写</li>
+    <li><strong>ngas 中文汇编器</strong> — 中文指令集汇编器，用中文书写汇编</li>
+    <li><strong>m0 / m1 / m2 汇编器</strong> — 多级汇编体系，逐层掌控机器细节</li>
+    <li><strong>字节码 VM / JIT</strong> — 自研虚拟机与即时编译引擎</li>
+    <li><strong>NGX2 保护容器</strong> — 代码保护容器，守护核心逻辑</li>
+    <li><strong>ngkey 签名工具</strong> — 签名与验证体系，衍生可溯源</li>
+  </ul>
+</section>
+
+<section id="license" class="wrap">
+  <h2>开源与署名</h2>
+  <div class="lic">
+    <p><strong style="color:var(--teal-300)">开源协议：Apache-2.0</strong></p>
+    <p>本仓库以 Apache-2.0 协议开源，并附加强制署名条款（详见仓库 NOTICE.md）：衍生作品必须标注「基于凝恩语言（NINGEN）」，禁止冒充。安全核心（NGX2 保护容器、ngkey 签名工具、验真/变异算法）保留闭源。</p>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p>凝恩语言（NINGEN）· 独立开发者「凝恩」 · 蓝图与代码，五五开姓凝</p>
+  <p style="margin-top:8px">让中文成为编程的一等公民 <span class="heart">◆</span> 2026</p>
+</footer>
+</body>
+</html>
