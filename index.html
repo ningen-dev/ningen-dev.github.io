@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>凝恩语言 NINGEN — 让中文成为编程的一等公民</title>
-<meta name="description" content="凝恩语言（NINGEN）：全中文自然语言级编程语言，含全自研编译器、VM 与 ARM64 工具链。让中文成为编程的一等公民。">
+<title>凝恩语言 NINGEN — 全语言史超集 · 让中文成为编程的一等公民</title>
+<meta name="description" content="凝恩语言（NINGEN）：对全语言史做能力超集的全中文编程语言，含全自研编译器、字节码 VM、私有混淆 ISA 与 ARM64 工具链，双层开源/防护架构。让中文成为编程的一等公民。">
 <style>
   :root {
     --teal-50: #f0fdfa;
@@ -51,7 +51,7 @@
     100% { background-position: 300% 50%; }
   }
   .hero .sub { margin-top: 18px; font-size: clamp(18px, 3vw, 26px); color: var(--teal-100); font-weight: 600; }
-  .hero .desc { margin-top: 20px; color: #94a3b8; max-width: 640px; margin-left: auto; margin-right: auto; font-size: 15px; }
+  .hero .desc { margin-top: 20px; color: #94a3b8; max-width: 680px; margin-left: auto; margin-right: auto; font-size: 15px; }
   .hero .badges { margin-top: 32px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
   .badge {
     border: 1px solid var(--teal-500); color: var(--teal-200);
@@ -95,17 +95,18 @@
 <canvas id="bg" aria-hidden="true"></canvas>
 <nav class="wrap">
   <div class="logo">凝恩语言 <span>NINGEN</span></div>
-  <div><a href="#features">特性</a><a href="#toolchain">工具链</a><a href="#license">开源</a></div>
+  <div><a href="#features">定位</a><a href="#dual">双层设计</a><a href="#toolchain">工具链</a><a href="#progress">自举进度</a><a href="#license">开源</a></div>
 </nav>
 
 <div class="hero wrap">
   <h1>凝恩语言</h1>
   <div class="sub">让中文成为编程的一等公民</div>
-  <p class="desc">凝恩语言（NINGEN）是一门全中文自然语言级编程语言，含全自研编译器、字节码 VM 与 ARM64 工具链，安全主权架构，不依赖任何开源编译框架，纯原生打造。</p>
+  <p class="desc">凝恩语言（NINGEN）<strong style="color:var(--teal-300)">不是任何语言的继任者，而是编程史的集大成者</strong>：对全语言史做能力超集——传统高级语言、标记/样式/数据、硬件/芯片、指令集机器层、量子系、查询/规则、命令行、概率编程、规格形式化……已有的能力全部吸收，并以中文重新表述；它们没有的<strong style="color:var(--teal-300)">安全可证明、血统签名、中文一等公民</strong>，由凝恩独创。</p>
   <div class="badges">
     <span class="badge">全中文语法</span>
-    <span class="badge">安全主权架构</span>
-    <span class="badge">全自研 ARM64 工具链</span>
+    <span class="badge">全语言史超集</span>
+    <span class="badge">安全可证明</span>
+    <span class="badge">双层开源 · 防护</span>
     <span class="badge">Apache-2.0 开源</span>
   </div>
   <button class="btn" type="button" onclick="window.open('https://github.com/ningen-dev/ningen','_blank')">查看开源仓库 →</button>
@@ -113,12 +114,21 @@
 </div>
 
 <section id="features" class="wrap">
-  <h2>核心特性</h2>
+  <h2>核心定位</h2>
   <div class="grid">
     <div class="card"><h3>中文一等公民</h3><p>关键字、语法、错误提示全中文，自然语言级表达，让中文开发者零门槛上手。</p></div>
-    <div class="card"><h3>安全主权架构</h3><p>可证、唯一可验、安全可证明、衍生可溯源，安全从语言层面开始。</p></div>
-    <div class="card"><h3>全自研工具链</h3><p>编译器、汇编器、VM/JIT、签名工具全部自研，不依赖任何开源编译框架。</p></div>
+    <div class="card"><h3>全语言史超集</h3><p>吸收从传统高级语言到指令集、从量子系到规格形式化的全部已有能力，再以中文重新表述——一个语言原则，能力转化吸收，不拼盘。</p></div>
+    <div class="card"><h3>安全可证明</h3><p>从出生层（编译器/字节码/VM/安全模型）就内建安全：可证、唯一可验、安全可证明、衍生可溯源。</p></div>
     <div class="card"><h3>ARM64 原生</h3><p>面向 ARM64 架构深度优化，配套中文汇编器，从底层掌握每一行指令。</p></div>
+  </div>
+</section>
+
+<section id="dual" class="wrap">
+  <h2>双层设计：开源与防护互不干扰</h2>
+  <div class="grid">
+    <div class="card"><h3>开源层 · 公开配方</h3><p>语言本体与工具链以 Apache-2.0 开源，NOTICE.md 附强制署名条款——衍生作品必须标注「基于凝恩语言（NINGEN）」，禁止冒充。</p></div>
+    <div class="card"><h3>防护层 · 封装成品</h3><p>NGX2 保护容器、血统签名、私有混淆 ISA、ngkey 私钥保留闭源——防护靠产物链路封装，不靠源码保密，源码开源不影响产物防护强度。</p></div>
+    <div class="card"><h3>成品公开 · 挑战反编译</h3><p>软件成品公开上传，欢迎反编译——拆不动，就是最好的广告。</p></div>
   </div>
 </section>
 
@@ -127,18 +137,28 @@
   <ul class="list">
     <li><strong>凝恩编译器</strong> — 全中文自然语言级编译前端，让代码像说话一样书写</li>
     <li><strong>ngas 中文汇编器</strong> — 中文指令集汇编器，用中文书写汇编</li>
-    <li><strong>m0 / m1 / m2 汇编器</strong> — 多级汇编体系，逐层掌控机器细节</li>
-    <li><strong>字节码 VM / JIT</strong> — 自研虚拟机与即时编译引擎</li>
+    <li><strong>m0 ~ m5 多级汇编体系</strong> — 逐层掌控机器细节，m1 已用于自举底座</li>
+    <li><strong>字节码 VM / ARM64 JIT</strong> — 自研虚拟机与即时编译引擎，跑私有混淆 ISA 字节码</li>
     <li><strong>NGX2 保护容器</strong> — 代码保护容器，守护核心逻辑</li>
-    <li><strong>ngkey 签名工具</strong> — 签名与验证体系，衍生可溯源</li>
+    <li><strong>ngkey 签名工具</strong> — 血统签名与验证体系，衍生可溯源</li>
   </ul>
+</section>
+
+<section id="progress" class="wrap">
+  <h2>自举进度 · v2.9</h2>
+  <div class="lic">
+    <p><strong style="color:var(--teal-300)">自举底座 · 阶段 1–3 已完成</strong></p>
+    <p>阶段1 文件 IO ✅　·　阶段2 字符串库 ✅　·　阶段3 字节操作 ✅（v2.9）</p>
+    <p>v2.9 落地字节操作：读字节 / 写字节 / 字节表 / 字节串 / 编码数 / 解码数，VM 内置编号 15–20，四层（vm_m4 / type_a / sema_m2 / codegen_m3）同步实现；冒烟测试 13/13 通过，v2.8 回归 13/13，类型负例 5/5 拦截。</p>
+    <p style="color:#94a3b8">阶段4 待办：二进制文件内置，直连 NGX2 容器。</p>
+  </div>
 </section>
 
 <section id="license" class="wrap">
   <h2>开源与署名</h2>
   <div class="lic">
     <p><strong style="color:var(--teal-300)">开源协议：Apache-2.0</strong></p>
-    <p>本仓库以 Apache-2.0 协议开源，并附加强制署名条款（详见仓库 NOTICE.md）：衍生作品必须标注「基于凝恩语言（NINGEN）」，禁止冒充。安全核心（NGX2 保护容器、ngkey 签名工具、验真/变异算法）保留闭源。</p>
+    <p>本仓库以 Apache-2.0 协议开源，并附加强制署名条款（详见仓库 NOTICE.md）：衍生作品必须标注「基于凝恩语言（NINGEN）」，禁止冒充。安全核心（NGX2 保护容器、血统签名、私有混淆 ISA、ngkey 签名工具、验真/变异算法）保留闭源——配方公开，成品照护，两层互不干扰。</p>
   </div>
 </section>
 
